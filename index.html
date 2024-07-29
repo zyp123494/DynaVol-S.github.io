@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Dynamic Scene Understanding through Object-Centric Voxelization and Neural Rendering">
+    <meta name="keywords" content="Monocular Reconstruction, Dynamic, Object-Centric Learning">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dynamic Scene Understanding through Object-Centric Voxelization and Neural Rendering</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|Jost"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!--    <link rel="icon" href="./static/images/favicon.png">-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title"><span class="textsc">Dynamic Scene Understanding through Object-Centric Voxelization and Neural Rendering </h1>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            Yanpeng Zhao,
+                            Yiwei Hao,
+                            Siyu Gao,
+                            <a href="https://wyb15.github.io/" target="_blank">Yunbo Wang</a><sup>†</sup>,
+                            Xiaokang Yang
+                        </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">MoE Key Lab of Artificial Intelligence, AI Institute, Shanghai Jiao Tong University</span>
+                        <span class="author-block"><sup>†</sup>Corresponding author: Yunbo Wang</span>
+                    </div>
+
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <span class="link-block">
+                                <a href="https://arxiv.org/pdf/2305.00393"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fas fa-file-pdf"></i>
+                                  </span>
+                                  <span>Paper</span>
+                                </a>
+                            </span>
+                            <!-- Code Link -->
+                            <span class="link-block">
+                                <a href="https://github.com/zyp123494/DynaVol"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fab fa-github"></i>
+                                  </span>
+                                  <span>Code</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="content has-text-justified">
+                <h3 class="title is-3 is-centered has-text-centered">Results on the Real-World Dataset Part-1</h3>
+            </div>
+
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/americano.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/chicken.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/torchocolate.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-chair-tp">
+                    <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/banana.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/espresso.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="content has-text-justified">
+                <h3 class="title is-3 is-centered has-text-centered">Results on the Real-World Dataset Part-2</h3>
+            </div>
+
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/slice-banana.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-chair-tp">
+                    <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/chickchicken.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-shiba">
+                    <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/printer.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-shiba">
+                    <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/split-cookie.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/broom.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="content has-text-justified">
+                <h3 class="title is-3 is-centered has-text-centered">Results on the Real-World Dataset Part-3</h3>
+            </div>
+
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-shiba">
+                    <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/balloon.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-shiba">
+                    <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/cup.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/keyboard.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/lemon.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/d2nerf_cookie.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/cross_hands.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/sieve.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="content has-text-justified">
+                <h3 class="title is-3 is-centered has-text-centered">Results on the Synthetic Dataset</h3>
+            </div>
+
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/3obj.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/3rand.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/3fall3still.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-chair-tp">
+                    <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/3metal.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-shiba">
+                    <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/6obj.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/3realcmpx.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/8obj.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-light">
+    <div class="hero-body">
+        <div class="container">
+            <div class="content has-text-justified">
+                <h3 class="title is-3 is-centered has-text-centered">Demo</h3>
+            </div>
+
+            <div class="columns is-centered has-text-centered">
+                <div class="content has-text-justified">
+                    <video poster="" id="chair-tp" autoplay controls loop playsinline height="80%">
+                        <source src="static/videos/demo.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <!--            <div class="columns is-centered has-text-centered">-->
+            <!--                <div class="column">-->
+            <!--                    <h4 class="is-4">-->
+            <!--                        These videos are synthesized with novel time and view with sparse time-view images as input.-->
+            <!--                    </h4>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="content has-text-justified">
+            <h2 class="title is-3 is-centered has-text-centered">Pipeline of DynaVol-S</h2>
+            <!--            <p>-->
+            <!--                The HyperNeRF architecture is a straightforward extension to Nerfies. The key difference is-->
+            <!--                that the template NeRF is conditioned on additional higher-dimensional coordinates, where-->
+            <!--                the higher dimensional coordinates are given by an "ambient slicing surface" which can be-->
+            <!--                thought of as a higher dimensional analog to the deformation field.-->
+            <!--            </p>-->
+            <div class="has-text-centered">
+                <img style="width: 90%;" src="static/images/pipeline2.png"
+                     alt="HyperNeRF architecture."/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Learning object-centric representations from unsupervised videos is challenging. Unlike most previous approaches that focus on decomposing 2D images, we present a 3D generative model named DynaVol-S for dynamic scenes that enables object-centric learning within a differentiable volume rendering framework. 
+The key idea is to perform object-centric voxelization to capture the 3D nature of the scene, which infers per-object occupancy probabilities at individual spatial locations. These voxel features evolve through a canonical-space deformation function and are optimized in an inverse rendering pipeline with a compositional NeRF.
+Additionally, our approach integrates 2D semantic features to create 3D semantic grids, representing the scene through multiple disentangled voxel grids. 
+DynaVol-S significantly outperforms existing models in both novel view synthesis and unsupervised decomposition tasks for dynamic scenes. By jointly considering geometric structures and semantic features, it effectively addresses challenging real-world scenarios involving complex object interactions.
+Furthermore, once trained, the explicitly meaningful voxel features enable additional capabilities that 2D scene decomposition methods cannot achieve, such as novel scene generation through editing geometric shapes or manipulating the motion trajectories of objects.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+
+    </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code> 
+            @inproceedings{
+            zhao2024dynavol,
+            title={DynaVol: Unsupervised Learning for Dynamic Scenes through Object-Centric Voxelization},
+            author={Yanpeng Zhao and Siyu Gao and Yunbo Wang and Xiaokang Yang},
+            booktitle={ICLR},
+            year={2024},
+            url={https://openreview.net/forum?id=koYsgfEwCQ}
+            }
+</code></pre>
+    </div>
+</section>
+
+
+<footer class="footer is-center">
+    <div class="container">
+        <div class="content has-text-centered">
+            <a class="icon-link" href="https://github.com/zyp123494/DynaVol/tree/main" class="external-link"
+               disabled>
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        We thank the authors of <a href="https://github.com/nerfies/nerfies.github.io"><span
+                            class="textsc">Nerfies</span></a> that kindly open sourced the template of this website.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
